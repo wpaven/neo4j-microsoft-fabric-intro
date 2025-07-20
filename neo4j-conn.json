@@ -1,0 +1,5 @@
+{
+  "neo4j-url": "neo4j+s://a2e6339d.databases.neo4j.io",
+  "neo4j-username": "neo4j",
+  "neo4j-password": "updateThis"
+}
