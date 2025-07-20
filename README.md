@@ -45,3 +45,8 @@ We now have our sample data in the Lakehouse.
 We also require the Neo4j Spark Connector. You can [download the .jar file here](https://github.com/neo4j/neo4j-spark-connector/releases).  Upload the Neo4j Spark Connector. jar to the Drivers folder.  I used neo4j-spark-connector-5.3.8-s_2.12.jar
 
 Finally, the Neo4j credentials are hardcoded in one example, and pulled from a **neo4j-conn.json** file in another.  Update the parameters in this file with the details for your Neo4j AuraDB instance and then upload this file to the Drivers folder as well. 
+
+With our Lakehouse created and files uploaded, we're now ready to start moving data.
+
+** Using the Workbooks
+
