@@ -49,7 +49,16 @@ Finally, the Neo4j credentials are hardcoded in one example, and pulled from a *
 With our Lakehouse created and files uploaded, we're now ready to start moving data.
 
 ## Using the Workbooks 
+Select Lakehouse1 from the tiles on the right pane.
+Select 'Open Workbook' from the dropdown at the top
+Select 'New Workbook'
+
+You are now in a new Notebook.  Rename if from 'Notebook' by clicking the name of the Notebook to edit. Rename it 'Neo4j Workbook'
+
+There is likely a way to import an existing workbook, but I haven't discovered it yet. I'm new to Fabric, so sharing what I've learned so far.  Once you have the noteobook, you can cut and paste from the cells here into blocks in the new notebook.  After running a block, at the bottom you'll find a '+ Code' appear on rollover.  Click this to add additional cells.  You'll want to create 2 notebooks and name similarily.  Download is readily apparent from the top menu items.  I believe import requires a separate workspace task, or I'm just missing it for some reason.
+
 ### Neo4j Workbook.ipynb
+This workbook will migrate the .csv files in the Northwind directory to a graph in Neo4j AuraDB.
 
 I started with the one in the partners repo.  The first difference you'll note is the `%%configure` in the first cell to import the Neo4j Spark Connector .jar. Without this, you'll get misleading errors when trying to import the nodes. The error message will tell you something about not being able to parse the orderID, but it's really choking on line 11 in the 4th cell with the reference to `org.neo4j.spark.DataSource`  
 
@@ -67,4 +76,19 @@ In **cell 2**, you will also want to set the `absfss_Base_Path` for your files f
 In **cell 4**, you need to set `neo4jUrl`, `neo4jUsername`, and `neo4jPassword` to the values for your Neo4j AuraDB instance.  If you want to import from *neo4j-conn.json*, see the example in *Neo4jToLakehouse.ipynb*.
 
 Run these cells in order and you can then view your graph in the Query pane of your Neo4j AuraDB instance.
+
+### Neo4j Workbook.ipynb
+This workbook will migrate the results of a cypher query to Neo4j AuraDB to a .csv file and table in the Microsoft Fabric Lakehouse.
+
+**cell 1** Update similar to cell 1 above to set ABFS for the Neo3j Spark Connector .jar file
+
+**cell 2** This cell pulls the Neo4j Credentials from a file saved in the lakehouse.  Update the value of `absfss_JSON_Base_Path` with the ABFS for the *neo4j-conn.json* file. Make sure this file has been updated with the details for your Neo4j AuraDB instance.
+
+**cell 3** Take a look at the results after running this block.  You can change the `query` as well as desired.
+
+**cell 4** This block writes the results of the query above to a .csv file in the **ExportFromNeo4j** directory.  Make sure this diretory exists in your Lakehouse.
+
+**cell 5** This block writes the results of the query to a Lakehouse table named Analysis.
+
+After running the above blocks, navigate to Lakehouse1 and you can preview the **analysis** table and the *test.csv* output file created.  Note: if the file and table do not appear, you may have to hit the 3 dot ellipsis to the right of Tables and/or the **ExportFromNeo4j** and select 'Refresh' for the UI to update and display that the file and table are there.
 
