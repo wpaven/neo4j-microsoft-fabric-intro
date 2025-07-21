@@ -49,9 +49,9 @@ Finally, the Neo4j credentials are hardcoded in one example, and pulled from a *
 With our Lakehouse created and files uploaded, we're now ready to start moving data.
 
 ## Using the Workbooks 
-Select Lakehouse1 from the tiles on the right pane.
-Select 'Open Workbook' from the dropdown at the top
-Select 'New Workbook'
+- Select Lakehouse1 from the tiles on the right pane.
+- Select 'Open Workbook' from the dropdown at the top
+- Select 'New Workbook'
 
 You are now in a new Notebook.  Rename if from 'Notebook' by clicking the name of the Notebook to edit. Rename it 'Neo4j Workbook'
 
