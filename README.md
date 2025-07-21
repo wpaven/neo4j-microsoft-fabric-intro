@@ -82,7 +82,7 @@ In **cell 4**, you need to set `neo4jUrl`, `neo4jUsername`, and `neo4jPassword` 
 
 Run these cells in order and you can then view your graph in the Query pane of your Neo4j AuraDB instance.
 
-### Neo4j Workbook.ipynb
+### Neo4jToLakehouse.ipynb
 This workbook will migrate the results of a cypher query to Neo4j AuraDB to a .csv file and table in the Microsoft Fabric Lakehouse.
 
 **cell 1** Update similar to cell 1 above to set ABFS for the Neo4j Spark Connector .jar file
