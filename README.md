@@ -42,16 +42,16 @@ This creates the Northwind Folder.  In the Northwind folder we can load our Nort
 
 We now have our sample data in the Lakehouse.  
 
-We also require the Neo4j Spark Connector. You can [download the .jar file here](https://github.com/neo4j/neo4j-spark-connector/releases).  Upload the Neo4j Spark Connector. jar to the Drivers folder.  I used neo4j-spark-connector-5.3.8-s_2.12.jar
+We also require the Neo4j Spark Connector. You can [download the .jar file here](https://github.com/neo4j/neo4j-spark-connector/releases).  Upload the Neo4j Spark Connector. jar to the Drivers folder.  I used *neo4j-spark-connector-5.3.8-s_2.12.jar*
 
-Finally, the Neo4j credentials are hardcoded in one example, and pulled from a **neo4j-conn.json** file in another.  Update the parameters in this file with the details for your Neo4j AuraDB instance and then upload this file to the Drivers folder as well. 
+Finally, the Neo4j credentials are hardcoded in one example, and pulled from a *neo4j-conn.json* file in another.  Update the parameters in this file with the details for your Neo4j AuraDB instance and then upload this file to the Drivers folder as well. 
 
 With our Lakehouse created and files uploaded, we're now ready to start moving data.
 
 ## Using the Workbooks 
 ### Neo4j Workbook.ipynb
 
-I started with the one in the partners repo.  The first difference you'll note is the %%configure in the first cell to import the Neo4j Spark Connector .jar. Without this, you'll get misleading errors when trying to import the nodes. The error message will tell you something about not being able to parse the orderID, but it's really choking on line 11 in the 4th cell with the reference to **org.neo4j.spark.DataSource**  
+I started with the one in the partners repo.  The first difference you'll note is the `%%configure` in the first cell to import the Neo4j Spark Connector .jar. Without this, you'll get misleading errors when trying to import the nodes. The error message will tell you something about not being able to parse the orderID, but it's really choking on line 11 in the 4th cell with the reference to `org.neo4j.spark.DataSource`  
 
 In **cell 1**, you need to update the absolute path for the jar. To find the absolute path for your instance:
 - Click the Lakehouse1 tile on the left panel
@@ -62,9 +62,9 @@ In **cell 1**, you need to update the absolute path for the jar. To find the abs
 
 Note: Running the cell took 2-2.5 minutes for me to import the .jar into the session.  The rest of the cells run relatively quickly.
 
-In **cell 2**, you will also want to set the absfss_Base_Path for your files finding the ABFS for the Northwind directory.
+In **cell 2**, you will also want to set the `absfss_Base_Path` for your files finding the ABFS for the Northwind directory.
 
-In **cell 4**, you need to set neo4jUrl, neo4jUsername, and neo4jPassword to the values for your Neo4j AuraDB instance.  If you want to import from neo4j-conn.json, see the example in Neo4jToLakehouse.ipynb.
+In **cell 4**, you need to set `neo4jUrl`, `neo4jUsername`, and `neo4jPassword` to the values for your Neo4j AuraDB instance.  If you want to import from *neo4j-conn.json*, see the example in *Neo4jToLakehouse.ipynb*.
 
 Run these cells in order and you can then view your graph in the Query pane of your Neo4j AuraDB instance.
 
