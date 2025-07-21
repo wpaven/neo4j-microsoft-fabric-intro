@@ -57,7 +57,7 @@ You are now in a new Notebook.  Rename if from 'Notebook' by clicking the name o
 
 There is likely a way to import an existing workbook, but I haven't discovered it yet. I'm new to Fabric, so sharing what I've learned so far.  Once you have the noteobook, you can cut and paste from the cells here into blocks in the new notebook.  After running a block, at the bottom you'll find a '+ Code' appear on rollover.  Click this to add additional cells.  You'll want to create 2 notebooks and name similarily.  Download is readily apparent from the top menu items.  I believe import requires a separate workspace task, or I'm just missing it for some reason.
 
-Also, in the lower right of a cell, make sure 'Pyspark (Python)' is selected or you may see syntax errors.
+In the lower right of a cell, make sure 'Pyspark (Python)' is selected or you may see syntax errors.
 
 ### Neo4j Workbook.ipynb
 This workbook will migrate the .csv files in the Northwind directory to a graph in Neo4j AuraDB.
@@ -72,6 +72,8 @@ In **cell 1**, you need to update the absolute path for the jar. To find the abs
 - Copy this ABFS to the spark.jars value in the first cell
 
 Note: Running the cell took 2-2.5 minutes for me to import the .jar into the session.  The rest of the cells run relatively quickly.
+
+Also, you'll see the `%%spark`in each cell. This also differs from the original .ipynb but is required for running the spark jobs.
 
 In **cell 2**, you will also want to set the `absfss_Base_Path` for your files finding the ABFS for the Northwind directory.
 
