@@ -49,4 +49,22 @@ Finally, the Neo4j credentials are hardcoded in one example, and pulled from a *
 With our Lakehouse created and files uploaded, we're now ready to start moving data.
 
 ## Using the Workbooks 
+### Neo4j Workbook.ipynb
+
+I started with the one in the partners repo.  The first difference you'll note is the %%configure in the first cell to import the Neo4j Spark Connector .jar. Without this, you'll get misleading errors when trying to import the nodes. The error message will tell you something about not being able to parse the orderID, but it's really choking on line 11 in the 4th cell with the reference to **org.neo4j.spark.DataSource**  
+
+In **cell 1**, you need to update the absolute path for the jar. To find the absolute path for your instance:
+- Click the Lakehouse1 tile on the left panel
+- Select the 'Drivers' folder and right-click on it
+- Select properties
+- In the properties pane you will find the ABFS path for the file.
+- Copy this ABFS to the spark.jars value in the first cell
+
+Note: Running the cell took 2-2.5 minutes for me to import the .jar into the session.  The rest of the cells run relatively quickly.
+
+In **cell 2**, you will also want to set the absfss_Base_Path for your files finding the ABFS for the Northwind directory.
+
+In **cell 4**, you need to set neo4jUrl, neo4jUsername, and neo4jPassword to the values for your Neo4j AuraDB instance.  If you want to import from neo4j-conn.json, see the example in Neo4jToLakehouse.ipynb.
+
+Run these cells in order and you can then view your graph in the Query pane of your Neo4j AuraDB instance.
 
