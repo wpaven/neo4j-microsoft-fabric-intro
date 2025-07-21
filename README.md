@@ -16,7 +16,7 @@ At the time of this writing, I used trial versions of both products. The trial v
 
 To begin, we need to get some data into a Microsoft Fabic Lakehouse.
 - Login to Fabric
-- Select 'My workspace'
+- Select 'My workspace' (Scroll down to bottom of home page in Fabric. You'll see this has been created by default. )
 - Click 'New Item'
 - Select Lakehouse
 - In the modal that pops up, give the lakehouse a name. I named mine 'Lakehouse1'
